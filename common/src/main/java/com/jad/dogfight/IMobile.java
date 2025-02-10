@@ -1,6 +1,4 @@
-package com.jad.dogfight.model;
-
-import com.jad.dogfight.Position;
+package com.jad.dogfight;
 
 public interface IMobile {
     void move();
@@ -10,4 +8,10 @@ public interface IMobile {
     void turnRight();
 
     Position getPosition();
+
+    ISprite getSprite();
+
+    int getY();
+
+    int getX();
 }

@@ -8,6 +8,7 @@ public class Controller implements IController {
     public Controller(final IView view, final IModel model) {
         this.view = view;
         this.model = model;
+        this.view.setModel(this.model);
     }
 
     @Override

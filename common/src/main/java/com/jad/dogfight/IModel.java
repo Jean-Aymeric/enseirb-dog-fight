@@ -1,5 +1,7 @@
 package com.jad.dogfight;
 
+import java.util.List;
+
 public interface IModel {
 
     void movesAllMobiles();
@@ -8,5 +10,7 @@ public interface IModel {
 
     int getWidth();
 
-    boolean getSpriteAtXY(int x, int y);
+    char getEmptyPixel();
+
+    List<? extends IMobile> getAllMobiles();
 }

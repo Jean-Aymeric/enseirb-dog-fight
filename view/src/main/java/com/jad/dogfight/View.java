@@ -9,16 +9,20 @@ public class View implements IView {
 
     @Override
     public void displayScreen() {
-        for (int y = 0; y < this.model.getHeight(); y++) {
-            for (int x = 0; x < this.model.getWidth(); x++) {
-                System.out.print(this.model.getSpriteAtXY(x, y));
-            }
-            System.out.println();
+        this.screen = new Screen(this.model.getWidth(),
+                                 this.model.getHeight(),
+                                 this.model.getEmptyPixel());
+        for (IMobile mobile : this.model.getAllMobiles()) {
+            this.screen.setSpriteAtXY(mobile.getX(),
+                                      mobile.getY(),
+                                      mobile.getSprite());
         }
+        System.out.println(this.screen.getText());
     }
 
     @Override
     public void setModel(final IModel model) {
         this.model = model;
+
     }
 }

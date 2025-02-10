@@ -1,5 +1,7 @@
 package com.jad.dogfight.model;
 
+import com.jad.dogfight.IMobile;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,5 +16,9 @@ public class Sky {
 
     public final void addMobile(final IMobile mobile) {
         this.mobiles.add(mobile);
+    }
+
+    public List<? extends IMobile> getMobiles() {
+        return this.mobiles;
     }
 }
