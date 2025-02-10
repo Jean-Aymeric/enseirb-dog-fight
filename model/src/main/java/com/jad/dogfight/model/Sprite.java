@@ -1,8 +1,10 @@
 package com.jad.dogfight.model;
 
+import com.jad.dogfight.ISprite;
+
 import java.awt.*;
 
-public class Sprite {
+public class Sprite implements ISprite {
     private final Dimension dimension;
     private final Tile matrix[][];
 
@@ -15,6 +17,18 @@ public class Sprite {
         return this.dimension;
     }
 
+    public void setTileAt(final int x, final int y, final Tile tile) {
+        if ((x >= 0) && (x < this.dimension.width)
+                && (y >= 0) && (y < this.dimension.height)) {
+            this.matrix[y][x] = tile;
+        }
+    }
+
+    @Override
+    public char getPixelAt(final int dx, final int dy) {
+        return this.getTileAt(dx, dy).getPixel();
+    }
+
     public Tile getTileAt(final int x, final int y) {
         if ((x < 0) || (x >= this.dimension.width)
                 || (y < 0) || (y >= this.dimension.height)) {
@@ -23,10 +37,13 @@ public class Sprite {
         return this.matrix[y][x];
     }
 
-    public void setTileAt(final int x, final int y, final Tile tile) {
-        if ((x >= 0) && (x < this.dimension.width)
-                && (y >= 0) && (y < this.dimension.height)) {
-            this.matrix[y][x] = tile;
-        }
+    @Override
+    public int getHeight() {
+        return this.dimension.height;
+    }
+
+    @Override
+    public int getWidth() {
+        return this.dimension.width;
     }
 }

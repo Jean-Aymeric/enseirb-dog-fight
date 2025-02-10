@@ -1,5 +1,12 @@
 package com.jad.dogfight;
 
 public interface IModel {
-    String getData();
+
+    void movesAllMobiles();
+
+    int getHeight();
+
+    int getWidth();
+
+    boolean getSpriteAtXY(int x, int y);
 }
