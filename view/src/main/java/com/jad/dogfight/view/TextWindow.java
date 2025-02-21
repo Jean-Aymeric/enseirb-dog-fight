@@ -15,7 +15,6 @@ public class TextWindow extends JFrame {
 
     public TextWindow() {
         this("No title");
-        this.createActionPerformers();
     }
 
     public TextWindow(final String title) {
@@ -42,7 +41,17 @@ public class TextWindow extends JFrame {
         this.add(panel, BorderLayout.CENTER);
         panel.add(this.textArea);
         panel.add(this.label);
+        this.createActionListeners();
+        this.createActionPerformers();
         this.setVisible(true);
+    }
+
+    private void createActionListeners() {
+        final InputMap inputMap = this.textArea.getInputMap();
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "left-p1-pressed");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "right-p1-pressed");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0, false), "left-p2-pressed");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0, false), "right-p2-pressed");
     }
 
     private void createActionPerformers() {
@@ -59,7 +68,7 @@ public class TextWindow extends JFrame {
                           new AbstractAction(actionState.getKey() + "-released") {
                               @Override
                               public void actionPerformed(final ActionEvent event) {
-                                  actionState.released();
+                                  actionState.release();
                               }
                           });
         }
@@ -75,13 +84,5 @@ public class TextWindow extends JFrame {
 
     public void showInfo(final String info) {
         this.label.setText(info);
-    }
-
-    private void createActionListeners() {
-        final InputMap inputMap = this.textArea.getInputMap();
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "left-p1-pressed");
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "right-p1-pressed");
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0, false), "left-p2-pressed");
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0, false), "right-p2-pressed");
     }
 }

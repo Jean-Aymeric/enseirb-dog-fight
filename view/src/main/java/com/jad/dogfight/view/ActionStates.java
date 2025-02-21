@@ -29,7 +29,7 @@ public enum ActionStates {
         this.isPressed = true;
     }
 
-    public void released() {
+    public void release() {
         this.isPressed = false;
     }
 }

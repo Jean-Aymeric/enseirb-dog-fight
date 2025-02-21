@@ -13,4 +13,8 @@ public interface IModel {
     char getEmptyPixel();
 
     List<? extends IMobile> getAllMobiles();
+
+    void turnLeft(final int player);
+
+    void turnRight(final int player);
 }

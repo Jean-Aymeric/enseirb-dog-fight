@@ -9,12 +9,16 @@ import java.util.List;
 public class Model implements IModel {
     private static final int WIDTH = 450;
     private static final int HEIGHT = 120;
-
+    private final Plane plane1;
+    private final Plane plane2;
     private Sky sky;
 
     public Model() {
         this.sky = new Sky(Model.WIDTH, Model.HEIGHT);
-        this.sky.addMobile(new Plane(new Position(0, 0), Direction.WEST));
+        this.plane1 = new Plane(new Position(0, 0), Direction.EAST);
+        this.plane2 = new Plane(new Position(400, 100), Direction.WEST);
+        this.sky.addMobile(this.plane1);
+        this.sky.addMobile(this.plane2);
     }
 
     @Override
@@ -42,5 +46,21 @@ public class Model implements IModel {
     @Override
     public List<? extends IMobile> getAllMobiles() {
         return this.sky.getMobiles();
+    }
+
+    @Override
+    public void turnLeft(final int player) {
+        switch (player) {
+            case 1 -> this.plane1.turnLeft();
+            case 2 -> this.plane2.turnLeft();
+        }
+    }
+
+    @Override
+    public void turnRight(final int player) {
+        switch (player) {
+            case 1 -> this.plane1.turnRight();
+            case 2 -> this.plane2.turnRight();
+        }
     }
 }

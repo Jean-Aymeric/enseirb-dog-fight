@@ -16,6 +16,10 @@ public class Controller implements IController {
         while (this.running) {
             this.view.displayScreen();
             this.model.movesAllMobiles();
+            if (this.view.isPlayer1WillingToTurnLeft()) this.model.turnLeft(1);
+            if (this.view.isPlayer1WillingToTurnRight()) this.model.turnRight(1);
+            if (this.view.isPlayer2WillingToTurnLeft()) this.model.turnLeft(2);
+            if (this.view.isPlayer2WillingToTurnRight()) this.model.turnRight(2);
             synchronized (this) {
                 long i = 0;
                 while (i < 50000000) {
