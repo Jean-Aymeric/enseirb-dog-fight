@@ -13,10 +13,11 @@ public class Controller implements IController {
 
     @Override
     public void start() {
-        this.view.displayScreen();
+
         while (this.running) {
+            this.view.displayScreen();
             this.model.movesAllMobiles();
-            this.running = false;
+            // this.running = false;
         }
     }
 }

@@ -8,8 +8,8 @@ import com.jad.dogfight.model.Tile;
 import java.util.List;
 
 public class Model implements IModel {
-    private static final int WIDTH = 80;
-    private static final int HEIGHT = 20;
+    private static final int WIDTH = 450;
+    private static final int HEIGHT = 120;
 
     private Sky sky;
 
@@ -20,7 +20,9 @@ public class Model implements IModel {
 
     @Override
     public void movesAllMobiles() {
-
+        for (IMobile mobile : this.getAllMobiles()) {
+            mobile.move();
+        }
     }
 
     @Override

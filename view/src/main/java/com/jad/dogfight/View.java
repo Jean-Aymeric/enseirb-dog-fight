@@ -2,10 +2,16 @@ package com.jad.dogfight;
 
 
 import com.jad.dogfight.view.Screen;
+import com.jad.dogfight.view.TextWindow;
 
 public class View implements IView {
+    private final TextWindow textWindow;
     private IModel model;
     private Screen screen;
+
+    public View() {
+        this.textWindow = new TextWindow("Dog Fight");
+    }
 
     @Override
     public void displayScreen() {
@@ -17,7 +23,7 @@ public class View implements IView {
                                       mobile.getY(),
                                       mobile.getSprite());
         }
-        System.out.println(this.screen.getText());
+        this.textWindow.setScreen(this.screen.getText());
     }
 
     @Override

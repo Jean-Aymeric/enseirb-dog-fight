@@ -27,7 +27,7 @@ public class Screen {
     }
 
     public void setPixelAtXY(final int x, final int y, final char pixel) {
-        this.pixels[y][x] = pixel;
+        this.pixels[(y + this.height) % this.height][(x + this.width) % this.width] = pixel;
     }
 
     public String getText() {
