@@ -9,5 +9,7 @@ public class Main {
         IModel model = new Model();
         IController controller = new Controller(view, model);
         controller.start();
+
+
     }
 }

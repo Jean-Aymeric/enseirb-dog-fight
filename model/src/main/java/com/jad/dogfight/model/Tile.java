@@ -1,8 +1,8 @@
 package com.jad.dogfight.model;
 
 public enum Tile {
-    EMPTY('.'),
-    FULL('*');
+    EMPTY(' '),
+    FULL('█');
 
     private final char pixel;
 

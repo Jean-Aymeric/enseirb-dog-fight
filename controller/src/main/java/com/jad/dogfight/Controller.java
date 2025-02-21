@@ -13,10 +13,15 @@ public class Controller implements IController {
 
     @Override
     public void start() {
-
         while (this.running) {
             this.view.displayScreen();
             this.model.movesAllMobiles();
+            synchronized (this) {
+                long i = 0;
+                while (i < 50000000) {
+                    i++;
+                }
+            }
             // this.running = false;
         }
     }
