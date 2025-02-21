@@ -1,10 +1,10 @@
-package com.jad.dogfight.model;
+package com.jad.dogfight;
 
 public enum Direction {
-    NORTH,
     EAST,
     SOUTH,
-    WEST;
+    WEST,
+    NORTH;
 
     public Direction getLeft() {
         return Direction.values()[(this.ordinal() + Direction.values().length - 1) % Direction.values().length];

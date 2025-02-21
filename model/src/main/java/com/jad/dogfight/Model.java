@@ -1,6 +1,5 @@
 package com.jad.dogfight;
 
-import com.jad.dogfight.model.Direction;
 import com.jad.dogfight.model.Plane;
 import com.jad.dogfight.model.Sky;
 import com.jad.dogfight.model.Tile;
@@ -15,13 +14,13 @@ public class Model implements IModel {
 
     public Model() {
         this.sky = new Sky(Model.WIDTH, Model.HEIGHT);
-        this.sky.addMobile(new Plane(new Position(0, 0), Direction.EAST));
+        this.sky.addMobile(new Plane(new Position(0, 0), Direction.WEST));
     }
 
     @Override
     public void movesAllMobiles() {
         for (IMobile mobile : this.getAllMobiles()) {
-            mobile.move();
+            mobile.move(Model.WIDTH, Model.HEIGHT);
         }
     }
 

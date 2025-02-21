@@ -1,7 +1,7 @@
 package com.jad.dogfight;
 
 public interface IMobile {
-    void move();
+    void move(int width, int height);
 
     void turnLeft();
 
@@ -14,4 +14,6 @@ public interface IMobile {
     int getY();
 
     int getX();
+
+    Direction getDirection();
 }

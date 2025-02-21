@@ -21,7 +21,8 @@ public class View implements IView {
         for (IMobile mobile : this.model.getAllMobiles()) {
             this.screen.setSpriteAtXY(mobile.getX(),
                                       mobile.getY(),
-                                      mobile.getSprite());
+                                      mobile.getSprite(),
+                                      mobile.getDirection());
         }
         this.textWindow.setScreen(this.screen.getText());
     }

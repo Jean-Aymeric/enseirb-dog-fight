@@ -1,5 +1,6 @@
 package com.jad.dogfight.model;
 
+import com.jad.dogfight.Direction;
 import com.jad.dogfight.Position;
 
 public class Plane extends AbstractMobile {
